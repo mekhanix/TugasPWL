@@ -5,6 +5,22 @@ class Nilai_model extends CI_Model {
         return $nilaiakhir;        
     }
 
+    public function getFile($data){
+        $this->load->helper('file');
+        $file = file_get_contents("C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json");
+        $tmpData = json_decode($file, TRUE);
+        array_push($tmpData, $data);
+        $jsondata = json_encode($tmpData);
+        return $jsondata;
+    }
+
+    public function toTable(){
+        $this->load->helper('file');
+        $file = file_get_contents("C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json");
+        $tmpData = json_decode($file, TRUE);
+        return $tmpData;
+    }
+
     public function indeks($nilaiakhir){
         switch ($nilaiakhir) {
             case $nilaiakhir > 85:
