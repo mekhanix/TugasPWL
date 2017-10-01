@@ -54,4 +54,47 @@ class Nilai_model extends CI_Model {
                 break;
         }
     }
+
+    function hitung_nxk($indeks, $sks){
+        switch ($indeks) {
+            case $indeks == "A":
+                $ix = 4.0;
+                $nxk = (float) $sks * $ix;
+                return $nxk;
+                break;
+            case $indeks == "B+":
+                $ix = 3.5;
+                $nxk = (float) $sks * $ix;
+                return $nxk;
+                break;
+            case $indeks == "B":
+                $ix = 3.0;
+                $nxk = (float) $sks * $ix;
+                return $nxk;
+                break;
+            case $indeks == "C+":
+                $ix = 2.5;
+                $nxk = (float) $sks * $ix;
+                return $nxk;
+                break;
+            case $indeks == "C":
+                $ix = 2.0;
+                $nxk = (float) $sks * $ix;
+                return $nxk;
+                break;
+            case $indeks == "D":
+                $ix = 1.0;
+                $nxk = (float) $sks * $ix;
+                return $nxk;
+                break;
+            case $indeks == "E":
+                $ix = 0;
+                $nxk = (float) $sks * $ix;
+                return $nxk;
+                break;
+                default:
+                return 0;
+                break;
+        }
+        }
 }

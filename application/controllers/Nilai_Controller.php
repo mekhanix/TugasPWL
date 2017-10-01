@@ -9,7 +9,7 @@ class Nilai_Controller extends CI_Controller {
 
             $nilaiakhir = $model->nilaiakhir($_POST['tugas'], $_POST['uts'], $_POST['uas']);
             $indeks = $model->indeks($nilaiakhir);
-            
+            $nxk = $model->hitung_nxk($indeks, (int)$_POST['sks']);
 
         $data = (
             array($_POST['kodemk']=>array('namamk'=>$_POST['namamk'],
@@ -21,7 +21,8 @@ class Nilai_Controller extends CI_Controller {
             'uts'=>$_POST['uts'],
             'uas'=>$_POST['uas'],
             'nilai akhir' => $nilaiakhir,
-            'indeks' => $indeks
+            'indeks' => $indeks,
+            'nxk' => $nxk,
             ))
         );
         

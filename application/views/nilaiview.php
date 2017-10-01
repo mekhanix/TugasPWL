@@ -42,6 +42,7 @@
             <th>UAS</th>
             <th>Nilai Akhir</th>
             <th>Indeks</th>
+            <th>nxk</th>
             <th>Hapus</th>
             <th>Multiple Hapus</th>
         </tr>
