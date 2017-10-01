@@ -20,28 +20,6 @@ foreach($dataku as $indeks => $arr){
     }
 }
 
-// print_r($tampung);
-// print_r($dataku);
-function hitung_ipk($res, $namamhs){
-    $arr =  $res[$namamhs];
-    $totalsks = 0;
-    $totalnxk = 0;
-    foreach($arr as $semester=>$arraymk){
-        foreach ($arraymk as $k => $arraynilai) {
-            foreach($arraynilai as $k => $v){
-                if($k == 1){
-                    $totalsks = $totalsks + $v;
-                }
-                if($k == 4){
-                    $totalnxk = $totalnxk + $v;
-                }
-            }
-        }
-    }
-    $total = round($totalnxk/$totalsks, 2);
-    return $total;
-}
-
 function hitung_ips($array, $nama, $semester){
     $totalsks = 0;
     $totalnxk = 0;
@@ -59,7 +37,19 @@ function hitung_ips($array, $nama, $semester){
     $total = round($totalnxk/$totalsks, 2);
     return $total;
 }
-// echo(hitung_ips($tampung, 'Miftah Muhammad', 5));
+
+function hitung_ipk($res, $namamhs){
+    $arr = $res[$namamhs];
+    $total_semester = count($arr);
+    $total_ips = array();
+    
+    foreach($arr as $semester => $arraynilai){
+            array_push($total_ips, hitung_ips($res, $namamhs, $semester));
+    }
+    $ipk = round(array_sum($total_ips)/ $total_semester,2);
+    return $ipk;
+}
+// hitung_ipk($tampung, 'Json');
 ?>
 
 

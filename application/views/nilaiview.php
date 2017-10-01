@@ -28,7 +28,7 @@
         <input class="form-control" type="submit" name="btnSubmit" value="Submit" />
         </div>
     </form>
-    <a href="http://localhost/nilai/index.php/khs_controller"><button class="btn btn-default">LIHAT KHS</button></a>
+    <a target="_blank" href="http://localhost/nilai/index.php/khs_controller"><button class="btn btn-default">LIHAT KHS</button></a>
     <form action="" method="post">
     <table class="table">
         <tr>
