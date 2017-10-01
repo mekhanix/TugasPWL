@@ -15,41 +15,45 @@
 $tampung = [];
 foreach($dataku as $indeks => $arr){
     foreach($arr as $hasil){
-        $tampung[$hasil['nama']][][$hasil['namamk']] = [$hasil['namamk'], $hasil['sks'],$hasil['indeks'], $hasil['nilai akhir'], $hasil['nxk']];
-        
-        if(array_key_exists($hasil['nama'], $tampung) && array_key_exists($hasil['namamk'], $tampung[$hasil['nama']][0])){
-            // echo($hasil['nama']);
-        }else{
-            // echo('namamk belum ada');
-        }       
+        // $tampung[$hasil['nama']][][$hasil['namamk']] = [$hasil['namamk'], $hasil['sks'],$hasil['indeks'], $hasil['nilai akhir'], $hasil['nxk']];
+        $tampung[$hasil['nama']][$hasil['semester']][$hasil['namamk']] = [$hasil['namamk'], $hasil['sks'],$hasil['indeks'], $hasil['nilai akhir'], $hasil['nxk']];      
     }
 }
 
-print_r($tampung);
+// print_r($tampung);
 // print_r($dataku);
 ?>
 <? if (isset($tampung)) :?>
-<? foreach($tampung as $table) :?>
+<? foreach($tampung as $namamhs => $arraysmstr) :?>
+<? echo("<b>Nama Mahasiswa : $namamhs</b><br>") ?>
+<div class="well">
+<? foreach($arraysmstr as $semester => $nilai) :?>
+<div class="container">
+<? echo("<b>Semester : $semester</b><br>") ?>
 <table class="table">
-<tr>
-    <td>Mata Kuliah</td>
-    <td>SKS</td>
-    <td>Nilai</td>
-    <td>Indeks</td>
-    <td>nxk</td>
-</tr>
-<? foreach($table as $key => $isi) :?>
-<? foreach($isi as $indeks => $arr) :?>
-<tr>
-<? foreach($arr as $k => $v) :?>
-<td><? echo($v) ?></td>
-<? endforeach ?>
-</tr>
-<? endforeach ?>
-<? endforeach ?>
+    <tr>
+        <th>Nama Matakuliah</th>
+        <th>SKS</th>
+        <th>Nilai</th>
+        <th>Indeks</th>
+        <th>nxk</th>
+    </tr>
+    <?foreach ($nilai as $k => $anotherarray):?>
+    <tr>
+    <?foreach($anotherarray as $i => $v):?>
+    
+    <td>
+        <? echo($v) ?>
+    </td>
+    
+    <?endforeach?>
+    </tr>
+    <?endforeach?>
 </table>
+</div>
 <? endforeach ?>
-
+</div>
+<? endforeach ?>
 <? endif ?>
 
 
