@@ -28,6 +28,7 @@
         <input class="form-control" type="submit" name="btnSubmit" value="Submit" />
         </div>
     </form>
+    <a href="http://localhost/nilai/index.php/khs_controller"><button class="btn btn-default">LIHAT KHS</button></a>
     <form action="" method="post">
     <table class="table">
         <tr>
@@ -68,6 +69,7 @@
             $_SESSION['multihps'] = $_POST['checkbox'];
         }
         header("Location: http://localhost/nilai/index.php/nilai_controller/delete_multiple/");
+        exit();
     }
     ?>
 

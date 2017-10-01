@@ -4,7 +4,7 @@ class Nilai_model extends CI_Model {
         $nilaiakhir = round(($tugas + $uts + $uas) / 3);
         return $nilaiakhir;        
     }
-
+// ambil data json
     public function getFile($data){
         $this->load->helper('file');
         $file = file_get_contents("C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json");
@@ -13,7 +13,7 @@ class Nilai_model extends CI_Model {
         $jsondata = json_encode($tmpData);
         return $jsondata;
     }
-
+// ambil data array
     public function toTable(){
         $this->load->helper('file');
         $file = file_get_contents("C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json");

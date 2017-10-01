@@ -24,13 +24,12 @@ class Nilai_Controller extends CI_Controller {
             'indeks' => $indeks
             ))
         );
-
+        
         $dataku = $model->getFile($data);
-
         if (! write_file('C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json', $dataku)) {
             echo "unable to write file";
         } else {
-            echo "file written";
+            echo "data written";
         }
         
 
