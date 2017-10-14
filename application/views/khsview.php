@@ -9,9 +9,7 @@
     <title>KHS</title>
 </head>
 <body>
-
 <?
-// holy shit it's working ?????
 $tampung = [];
 foreach($dataku as $indeks => $arr){
     $tampung[$arr['nama']][$arr['semester']][$arr['nama_mk']] = [$arr['nama_mk'], $arr['sks'],$arr['indeks'], $arr['nilaiakhir'], $arr['nxk']];

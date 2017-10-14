@@ -11,7 +11,7 @@ class Nilai_model extends CI_Model {
     }
 
     public function nilaiakhir($tugas, $uts, $uas) {
-        $nilaiakhir = round(($tugas + $uts + $uas) / 3);
+        $nilaiakhir = round(( (float) $tugas + (float) $uts + (float) $uas) / 3);
         return $nilaiakhir;        
     }
 // ambil data json

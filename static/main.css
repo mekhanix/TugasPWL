@@ -1,0 +1,18 @@
+.alert {
+    display: block;
+    padding: 0px;
+}
+#btnSubmit {
+    margin-top: 10px;
+    width: 100%;
+}
+
+#lihatKhs {
+    margin-top: 10px;
+    width: 100%;
+}
+ 
+#multiHps {
+    margin-right: 54px;
+    
+}
