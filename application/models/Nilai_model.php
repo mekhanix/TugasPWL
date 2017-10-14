@@ -1,5 +1,15 @@
 <?php
 class Nilai_model extends CI_Model {
+    public function getData(){
+        $query = $this->db->get('Nilai');
+        return $query;
+        
+    }
+
+    public function insertData($data) {
+        $this->db->insert('Nilai', $data);
+    }
+
     public function nilaiakhir($tugas, $uts, $uas) {
         $nilaiakhir = round(($tugas + $uts + $uas) / 3);
         return $nilaiakhir;        
@@ -40,7 +50,7 @@ class Nilai_model extends CI_Model {
                 $huruf = "C+";
                 return $huruf;
                 break;
-            case $nilaiakhir > 60:
+            case $nilaiakhir >= 60:
                 $huruf = "C";
                 return $huruf;
                 break;

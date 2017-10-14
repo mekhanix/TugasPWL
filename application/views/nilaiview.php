@@ -4,6 +4,7 @@
         <title>Nilai</title>
     </head>
     <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <body>
     <form action="" method="POST" class="form-group form-group-sm row">
         <div class="col-xs-3">
@@ -33,6 +34,8 @@
     <form action="" method="post">
     <table class="table">
         <tr>
+            <th>id</th>
+            <th>Kode MK</th>
             <th>Nama MK</th>
             <th>SKS</th>
             <th>NRP</th>
@@ -43,28 +46,25 @@
             <th>UAS</th>
             <th>Nilai Akhir</th>
             <th>Indeks</th>
-            <th>nxk</th>
+            <th>Nxk</th>
             <th>Hapus</th>
-            <th>Multiple Hapus</th>
+            <th>Multiple Hapus <input onClick="checkAll(this)" type='checkbox'> </th>
         </tr>
      
-    <? if (count($dataku) > 0) :?>
-    <? foreach($dataku as $key => $row) :?>
-    <tr>
-    <? foreach($row as $value) :?>
-    <? endforeach ?>
 
-    <? foreach($value as $data) :?>
-    <td><? echo $data ?></td>
-    <?endforeach?>
-    
-    <td><a href="<?echo base_url('index.php/Nilai_Controller/delete/'.$key);?>">Hapus</a></td>
-    <td><input type='checkbox' name='checkbox[]' value=<? echo $key ?>></td>
+    <? if(count($hasilSelect) > 0) :?>
+    <? foreach($hasilSelect as $row) :?>
+    <tr>
+        <? foreach($row as $data) :?>
+        <td><? echo $data ?></td>
+        <? endforeach ?>
+        <td><a href="<?echo base_url('index.php/Nilai_Controller/delete/'.$row['id']);?>">Hapus</a></td>
+        <td><input type='checkbox' name='checkbox[]' value=<? echo $row['id'] ?>></td>
     </tr>
     <? endforeach ?>
-    <? endif ?>
-    
     <input type="submit" name="checkboxsbmt" value="Hapus" class="pull-right btn btn-danger">
+    <? endif ?>
+
     <?php 
     if (isset($_POST['checkboxsbmt'])) 
     {
@@ -76,6 +76,17 @@
     }
     ?>
 
+    <script>
+        function checkAll(){
+        var checkboxes = document.getElementsByTagName('input'), val = null;    
+        for (var i = 0; i < checkboxes.length; i++){
+         if (checkboxes[i].type == 'checkbox'){
+             if (val === null) val = checkboxes[i].checked;
+                checkboxes[i].checked = val;
+            }
+        }
+    }    
+    </script>
     </body>
    
     </html> 

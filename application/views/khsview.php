@@ -14,10 +14,7 @@
 // holy shit it's working ?????
 $tampung = [];
 foreach($dataku as $indeks => $arr){
-    foreach($arr as $hasil){
-        // $tampung[$hasil['nama']][][$hasil['namamk']] = [$hasil['namamk'], $hasil['sks'],$hasil['indeks'], $hasil['nilai akhir'], $hasil['nxk']];
-        $tampung[$hasil['nama']][$hasil['semester']][$hasil['namamk']] = [$hasil['namamk'], $hasil['sks'],$hasil['indeks'], $hasil['nilai akhir'], $hasil['nxk']];      
-    }
+    $tampung[$arr['nama']][$arr['semester']][$arr['nama_mk']] = [$arr['nama_mk'], $arr['sks'],$arr['indeks'], $arr['nilaiakhir'], $arr['nxk']];
 }
 
 function hitung_ips($array, $nama, $semester){
@@ -49,7 +46,6 @@ function hitung_ipk($res, $namamhs){
     $ipk = round(array_sum($total_ips)/ $total_semester,2);
     return $ipk;
 }
-// hitung_ipk($tampung, 'Json');
 ?>
 
 
