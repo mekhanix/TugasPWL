@@ -1,5 +1,9 @@
 <?php 
 class Nilai_Controller extends CI_Controller {
+    public function __construct(){
+        parent::__construct();
+        $this->load->helper('url');
+    }
     public function index(){
         session_start();
         if (isset($_POST['btnSubmit'])) {
@@ -27,7 +31,7 @@ class Nilai_Controller extends CI_Controller {
         );
         
         $dataku = $model->getFile($data);
-        if (! write_file('C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json', $dataku)) {
+        if (! write_file(FCPATH."jsondata/nilai.json", $dataku)) {
             echo "unable to write file";
         } else {
             echo "data written";
@@ -51,13 +55,12 @@ class Nilai_Controller extends CI_Controller {
         $model = $this->Nilai_model;
         $dataku = $model->toTable();
         unset($dataku[$row]);
-        if (! write_file('C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json', json_encode($dataku))) {
+        if (! write_file(FCPATH."jsondata/nilai.json", json_encode($dataku))) {
             echo "unable to write file";
         } else {
-            echo "file written";
+            echo "redirect to " . base_url("index.php/Nilai_Controller");
         }
-
-        echo ("<a href='http://localhost/nilai/index.php/nilai_controller'>Kembali</a>");
+        redirect(base_url("index.php/Nilai_Controller"));
     }
 
     public function delete_multiple(){
@@ -70,15 +73,15 @@ class Nilai_Controller extends CI_Controller {
         foreach ($_SESSION['multihps'] as $key => $value) {
          unset($dataku[$value]);   
         }
-
-        if (! write_file('C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json', json_encode($dataku))) {
+        
+        if (! write_file(FCPATH."jsondata/nilai.json", json_encode($dataku))) {
             echo "unable to write file";
         } else {
             echo "file written";
         }
 
-        echo ("<a href='http://localhost/nilai/index.php/nilai_controller'>Kembali</a>");
         session_destroy();
+        redirect(base_url("index.php/Nilai_Controller"));
     }
 
 }

@@ -28,7 +28,8 @@
         <input class="form-control" type="submit" name="btnSubmit" value="Submit" />
         </div>
     </form>
-    <a target="_blank" href="http://localhost/nilai/index.php/khs_controller"><button class="btn btn-default">LIHAT KHS</button></a>
+    
+    <a target="_blank" href="<?echo base_url('index.php/KHS_Controller');?>"><button class="btn btn-default">LIHAT KHS</button></a>
     <form action="" method="post">
     <table class="table">
         <tr>
@@ -56,7 +57,8 @@
     <? foreach($value as $data) :?>
     <td><? echo $data ?></td>
     <?endforeach?>
-    <td><a href="http://localhost/nilai/index.php/nilai_controller/delete/<? echo $key ?>">Hapus</a></td>
+    
+    <td><a href="<?echo base_url('index.php/Nilai_Controller/delete/'.$key);?>">Hapus</a></td>
     <td><input type='checkbox' name='checkbox[]' value=<? echo $key ?>></td>
     </tr>
     <? endforeach ?>
@@ -69,7 +71,7 @@
         if (!isset($_SESSION['multihps'])) {
             $_SESSION['multihps'] = $_POST['checkbox'];
         }
-        header("Location: http://localhost/nilai/index.php/nilai_controller/delete_multiple/");
+        header("Location: ".base_url("index.php/Nilai_Controller/delete_multiple/"));
         exit();
     }
     ?>

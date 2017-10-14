@@ -7,7 +7,7 @@ class Nilai_model extends CI_Model {
 // ambil data json
     public function getFile($data){
         $this->load->helper('file');
-        $file = file_get_contents("C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json");
+        $file = file_get_contents(FCPATH."jsondata/nilai.json");
         $tmpData = json_decode($file, TRUE);
         array_push($tmpData, $data);
         $jsondata = json_encode($tmpData);
@@ -16,7 +16,7 @@ class Nilai_model extends CI_Model {
 // ambil data array
     public function toTable(){
         $this->load->helper('file');
-        $file = file_get_contents("C:\\xampp\\htdocs\\nilai\\jsondata\\nilai.json");
+        $file = file_get_contents(FCPATH."jsondata/nilai.json");
         $tmpData = json_decode($file, TRUE);
         return $tmpData;
     }
